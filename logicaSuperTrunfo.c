@@ -29,24 +29,34 @@ int main() {
     printf("PIB: ");
     scanf("%f", &c2.pib);
 
-    int op;
+    int op1, op2;
     do {
         printf("\nMenu:\n1. População\n2. Área\n3. PIB\n4. Sair\n");
-        printf("Escolha: ");
-        scanf("%d", &op);
+        printf("Escolha o primeiro atributo: ");
+        scanf("%d", &op1);
+        printf("Escolha o segundo atributo: ");
+        scanf("%d", &op2);
 
-        if (op == 1) {
-            if (c1.populacao > c2.populacao) printf("\n%s venceu!\n", c1.nome);
-            else printf("\n%s venceu!\n", c2.nome);
-        } else if (op == 2) {
-            if (c1.area > c2.area) printf("\n%s venceu!\n", c1.nome);
-            else printf("\n%s venceu!\n", c2.nome);
-        } else if (op == 3) {
-            if (c1.pib > c2.pib) printf("\n%s venceu!\n", c1.nome);
-            else printf("\n%s venceu!\n", c2.nome);
+        if (op1 == 1) {
+            if (op2 == 2) {
+                if (c1.populacao > c2.populacao && c1.area > c2.area) printf("\n%s venceu!\n", c1.nome);
+                else if (c1.populacao < c2.populacao && c1.area < c2.area) printf("\n%s venceu!\n", c2.nome);
+                else printf("\nEmpate!\n");
+            } else {
+                if (c1.populacao > c2.populacao && c1.pib > c2.pib) printf("\n%s venceu!\n", c1.nome);
+                else if (c1.populacao < c2.populacao && c1.pib < c2.pib) printf("\n%s venceu!\n", c2.nome);
+                else printf("\nEmpate!\n");
+            }
+        } else if (op1 == 2) {
+            if (op2 == 3) {
+                if (c1.area > c2.area && c1.pib > c2.pib) printf("\n%s venceu!\n", c1.nome);
+                else if (c1.area < c2.area && c1.pib < c2.pib) printf("\n%s venceu!\n", c2.nome);
+                else printf("\nEmpate!\n");
+            }
         }
-    } while (op != 4);
+    } while (op1 != 4 && op2 != 4);
 
     return 0;
 }
+
 
