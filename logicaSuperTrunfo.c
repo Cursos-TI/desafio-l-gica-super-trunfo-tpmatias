@@ -4,52 +4,48 @@ typedef struct {
     char nome[50];
     int populacao;
     float area, pib;
-    
 } Carta;
 
 int main() {
-    Carta carta1, carta2;
+    Carta c1, c2;
 
     printf("Carta 1:\n");
     printf("Nome: ");
-    scanf("%s", carta1.nome);
+    scanf("%s", c1.nome);
     printf("População: ");
-    scanf("%d", &carta1.populacao);
+    scanf("%d", &c1.populacao);
     printf("Área: ");
-    scanf("%f", &carta1.area);
+    scanf("%f", &c1.area);
     printf("PIB: ");
-    scanf("%f", &carta1.pib);
+    scanf("%f", &c1.pib);
 
     printf("\nCarta 2:\n");
     printf("Nome: ");
-    scanf("%s", carta2.nome);
+    scanf("%s", c2.nome);
     printf("População: ");
-    scanf("%d", &carta2.populacao);
+    scanf("%d", &c2.populacao);
     printf("Área: ");
-    scanf("%f", &carta2.area);
+    scanf("%f", &c2.area);
     printf("PIB: ");
-    scanf("%f", &carta2.pib);
+    scanf("%f", &c2.pib);
 
-    int atributo = 1; // 1 para população, 2 para área, 3 para PIB
-    if (atributo == 1) {
-        if (carta1.populacao > carta2.populacao) {
-            printf("\nCarta 1 (%s) venceu!\n", carta1.nome);
-        } else {
-            printf("\nCarta 2 (%s) venceu!\n", carta2.nome);
+    int op;
+    do {
+        printf("\nMenu:\n1. População\n2. Área\n3. PIB\n4. Sair\n");
+        printf("Escolha: ");
+        scanf("%d", &op);
+
+        if (op == 1) {
+            if (c1.populacao > c2.populacao) printf("\n%s venceu!\n", c1.nome);
+            else printf("\n%s venceu!\n", c2.nome);
+        } else if (op == 2) {
+            if (c1.area > c2.area) printf("\n%s venceu!\n", c1.nome);
+            else printf("\n%s venceu!\n", c2.nome);
+        } else if (op == 3) {
+            if (c1.pib > c2.pib) printf("\n%s venceu!\n", c1.nome);
+            else printf("\n%s venceu!\n", c2.nome);
         }
-    } else if (atributo == 2) {
-        if (carta1.area > carta2.area) {
-            printf("\nCarta 1 (%s) venceu!\n", carta1.nome);
-        } else {
-            printf("\nCarta 2 (%s) venceu!\n", carta2.nome);
-        }
-    } else if (atributo == 3) {
-        if (carta1.pib > carta2.pib) {
-            printf("\nCarta 1 (%s) venceu!\n", carta1.nome);
-        } else {
-            printf("\nCarta 2 (%s) venceu!\n", carta2.nome);
-        }
-    }
+    } while (op != 4);
 
     return 0;
 }
